@@ -7,11 +7,19 @@ package test;
 * and open the template in the editor.
 */
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 import src.SelectionSort;
 
 public class testSelectionSort {
+    private SelectionSort selectionSort;
+
+    @Before
+    public void initialize() {
+        selectionSort = new SelectionSort();
+    }
+
     @Test
     public void test() {
         testPositive();
@@ -40,16 +48,28 @@ public class testSelectionSort {
         
         /** add tests to check for this unit test **/
     }
-
+    
     public void testNegative(){
         /** Test data contains negative values only **/
     }
 
+    @Test
     public void testMixed(){
         /** Test data contains with both positive, negative and zeros **/
+        int[] arr = {9, -8, 4, -3, 1};
+        int[] Sortedarr = {-8, -3, 1, 4, 9};
+
+        assertArrayEquals(Sortedarr, selectionSort.basicSelectionSort(arr));
+
     }
 
+    @Test
     public void testDuplicates(){
         /** Test data contains duplicates **/
+        int[] arr = {-7, -7, 3, 3, -1, -1, 9, 9};
+        int[] Sortedarr = {-7, -7, -1, -1, 3, 3, 9, 9};
+
+        assertArrayEquals(Sortedarr, selectionSort.basicSelectionSort(arr));
+
     }
 }
