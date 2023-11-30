@@ -32,6 +32,7 @@ public class testSelectionSort {
     public testSelectionSort() {
     }
     
+    @Test
     public void testPositive(){
         int[] arr = new int[5];
         arr[0] = 8;
@@ -51,6 +52,7 @@ public class testSelectionSort {
         assertArrayEquals(Sortedarr, selectionSort.basicSelectionSort(arr));
     }
     
+    @Test
     public void testNegative(){
         /** Test data contains negative values only **/
         int[] arr = {-10, -1, -6, -2, -7};
