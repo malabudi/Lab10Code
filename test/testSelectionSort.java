@@ -7,11 +7,21 @@ package test;
 * and open the template in the editor.
 */
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import src.SelectionSort;
 
 public class testSelectionSort {
+    private SelectionSort selectionSort;
+
+    @Before
+    public void initialize() {
+        selectionSort = new SelectionSort();
+    }
+
+
     @Test
     public void test() {
         testPositive();
@@ -39,10 +49,16 @@ public class testSelectionSort {
         Sortedarr[4] = 10;
         
         /** add tests to check for this unit test **/
+        assertArrayEquals(Sortedarr, selectionSort.basicSelectionSort(arr));
     }
 
     public void testNegative(){
         /** Test data contains negative values only **/
+        int[] arr = {-10, -1, -6, -2, -7};
+        int[] Sortedarr = {-10, -7, -6, -2, -1};
+
+        assertArrayEquals(Sortedarr, selectionSort.basicSelectionSort(arr));
+
     }
 
     public void testMixed(){
